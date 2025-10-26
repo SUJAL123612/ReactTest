@@ -15,6 +15,7 @@ export default function Feed() {
   const SubmitPost = (e: React.FormEvent) => {
     e.preventDefault();
 
+
     if (!name.trim() || !text.trim()) return;
 
     const newPost: Post = {
@@ -32,6 +33,12 @@ export default function Feed() {
     newPost[index].likes += 1;
     setCount(newPost);
   };
+  const disLike = (index: number) => {
+    const newPost = [...count];
+    newPost[index].likes -= 1;
+    setCount(newPost);
+  };
+  
 
   return (
     <>
