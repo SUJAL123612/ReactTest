@@ -10,7 +10,7 @@ interface Post {
 export default function Feed() {
   const [name, setName] = useState("");
   const [text, setText] = useState("");
-  const [count, setCount] = useState<string[]>([]);
+  const [count, setCount] = useState<Post[]>([]);
 
   const SubmitPost = (e: React.FormEvent) => {
     e.preventDefault();
@@ -28,9 +28,9 @@ export default function Feed() {
     setText("");
   };
   const addLike = (index: number) => {
-    const updatedPosts = [...count];
-    updatedPosts[index].likes += 1;
-    setCount(updatedPosts);
+    const newPost = [...count];
+    newPost[index].likes += 1;
+    setCount(newPost);
   };
 
   return (
